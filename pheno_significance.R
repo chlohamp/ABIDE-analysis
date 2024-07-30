@@ -16,7 +16,7 @@ for (cluster in clusters) {
   data <- read.table(file = data_path, sep = ',', header = TRUE)
   
   for (phen_var in phen_vars) {
-    all_columns <- c(roi,categorical_vars, numerical_vars, phen_var, group_var, "Site")
+    all_columns <- c(roi, categorical_vars, numerical_vars, phen_var, group_var, "Site")
     sub_data <- data[, all_columns]
     sub_data <- na.omit(sub_data)
     
@@ -29,7 +29,7 @@ for (cluster in clusters) {
     }
     
     # Relevel 'Group' to make ASD the reference category
-    sub_data[[group_var]] <- relevel(factor(sub_data[[group_var]]), ref = "asd")
+    sub_data[[group_var]] <- relevel(factor(sub_data[[group_var]]), ref = "ASD")
 
     # Check the levels of 'Group' to ensure releveling worked
     print(levels(sub_data[[group_var]]))
